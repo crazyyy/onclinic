@@ -486,6 +486,7 @@ placeholder {
   line-height: 35px;
 }
 
+.sidebarnav .sub-menu,
 .dn {
   display: none;
 }
@@ -814,6 +815,7 @@ ul.o-list li {
           border-bottom: 1px solid #d2dceb;
         }
       }
+      &.menu-item-has-children > a:after,
       &.dropdown > a:after {
         font-size: 8px;
 
@@ -829,13 +831,15 @@ ul.o-list li {
         color: rgba(28, 79, 157, .4);
         background: url('../img/sprite.png') no-repeat -187px -3px;
       }
+      &.current_page_item > a > span,
       &.active > a > span,
       &:hover > a > span {
         border-bottom: 2px solid #ff6c00;
       }
     }
   }
-  .drop-down-menu {
+  .drop-down-menu,
+  .sub-menu {
     position: absolute;
     z-index: 1001;
     left: -20px;
@@ -849,9 +853,11 @@ ul.o-list li {
     background: #fff;
     box-shadow: 0 14px 51px rgba(0, 0, 0, .33);
   }
-  ul li:hover .drop-down-menu {
+  ul li:hover .drop-down-menu,
+  ul li:hover .sub-menu {
     display: block;
   }
+  .sub-menu,
   .drop-down-menu {
     li {
       border-bottom: 1px solid #e8edf5;
@@ -1007,6 +1013,7 @@ ul.o-list li {
       background: #1c4f9d;
     }
   }
+  .sub-menu li,
   .level2 li {
     a {
       line-height: 15px;
@@ -1273,6 +1280,7 @@ ul.o-list li {
     padding: 5px 0 10px;
   }
   .hor-menu {
+    .sub-menu,
     .drop-down-menu {
       bottom: 59px;
 
@@ -2890,6 +2898,7 @@ ul.o-list li {
           background: url('../img/left-menu-bg-a.png') repeat-x center bottom #f9fbfd;
         }
       }
+      .sub-menu a,
       .drop-down-menu a {
         line-height: 15px;
 
@@ -3026,7 +3035,6 @@ ul.o-list li {
       margin-bottom: 5%;
     }
   }
-
   .doctors-rubrik-list a {
     width: 97%;
   }
