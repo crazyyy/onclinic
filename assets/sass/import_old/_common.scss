@@ -494,7 +494,11 @@ placeholder {
 .dn {
   display: none;
 }
-
+.current_page_item {
+  .sub-menu {
+    display: block;
+  }
+}
 .db {
   display: block;
 }
@@ -881,6 +885,7 @@ ul.o-list li {
         background: #e8edf5;
       }
     }
+    li.current_page_item a,
     li.active a {
       color: #fff;
       background: #1c4f9d;
@@ -1009,6 +1014,7 @@ ul.o-list li {
         background: #dde5f0;
       }
     }
+    &.current_page_item > a,
     &.active > a {
       font-weight: 600;
 
@@ -1046,10 +1052,12 @@ ul.o-list li {
         background: url('../img/sprite.png') no-repeat -177px -3px;
       }
     }
+    &.current_page_item a,
     &.active a,
     a:hover {
       background: #e8edf5;
     }
+    &.current_page_item a,
     &.active a {
       font-weight: 600;
     }
@@ -1108,6 +1116,7 @@ ul.o-list li {
             border: 2px solid #ff6c00;
           }
         }
+        .current_page_item span,
         .active span {
           border: 2px solid #1c4f9d;
           background: #1c4f9d;
@@ -1391,7 +1400,6 @@ ul.o-list li {
   margin-bottom: 10px;
   a {
     text-decoration: none;
-
   }
 }
 
@@ -1521,6 +1529,7 @@ ul.o-list li {
 
         border-right: 0;
       }
+      &.current_page_item,
       &.active {
         cursor: default;
 
@@ -1962,6 +1971,7 @@ ul.o-list li {
       &:hover {
         background: #eff4fa;
       }
+      &.current_page_item,
       &.active {
         color: #fff;
         background: #1c4f9d;
@@ -2658,6 +2668,7 @@ ul.o-list li {
 
         color: #1c4f9d;
         border-bottom: 1px dotted #1c4f9d;
+        &.current_page_item,
         &.active {
           padding: 0 10px;
 
