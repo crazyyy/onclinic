@@ -1,11 +1,16 @@
-<aside class="sidebar" role="complementary">
+<div class="cont-l">
+  <div class="menu-left">
+    <?php wpeSideNav(); ?>
+  </div>
+  <div class="banner-left">
+    <a href="http://onclinic.kz/lechenie-v-izraile/">
+      <img src="<?php echo get_template_directory_uri(); ?>/img/izrail.png">
+    </a>
+  </div>
+</div>
 
-  <?php if ( is_active_sidebar('widgetarea1') ) : ?>
-    <?php dynamic_sidebar( 'widgetarea1' ); ?>
-  <?php else : ?>
+<?php if ( is_active_sidebar('widgetarea1') ) : ?>
+  <?php dynamic_sidebar( 'widgetarea1' ); ?>
+<?php else : ?>
 
-    <!-- If you want display static widget content - write code here
-		RU: Здесь код вывода того, что необходимо для статического контента виджетов -->
-
-  <?php endif; ?>
-</aside><!-- /sidebar -->
+<?php endif; ?>

@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php /* Template Name: Home Template */ get_header(); ?>
 
       <div class="block cf">
         <?php get_sidebar(); ?>
@@ -7,11 +7,9 @@
           <div class="s-p-content">
             <?php get_template_part('include-slider'); ?>
 
-            <h1 class="h2 m30 upp b">Международный медицинский центр On Clinic в Алматы</h1>
+            <h1 class="h2 m30 upp b"><?php the_title(); ?></h1>
             <div class="m20">
-              <p class="taj">Он Клиник Алматы был открыт в 2002 году и является первым филиалом крупнейшей международной корпорации на территории Казахстана.</p>
-              <p class="taj">За годы успешного развития на рынке частных медицинских услуг наши специалисты обрели бесценный практический опыт в области диагностики и лечения сексуальных расстройств у мужчин, проктологических и гинекологических заболеваний.</p>
-              <p class="taj">Секрет успеха On Clinic — высокие стандарты лечения и сервиса. Доказательство тому — сотни тысяч благодарных пациентов и их семей.</p>
+              <?php the_content(); ?>
             </div>
             <div class="m40 cf">
               <?php get_template_part('include-reviews'); ?>
