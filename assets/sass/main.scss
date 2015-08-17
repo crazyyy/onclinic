@@ -7,3 +7,20 @@
 /* @import 'import_old/firmsonmap'; */
 
 
+.cat-title {
+  a {
+    text-decoration: none;
+  }
+}
+.pagination {
+  font-size: 1.2em;
+
+  width: 100%;
+
+  text-align: center;
+  a,
+  span {
+    margin: 0 1em;
+    display: inline-block;
+  }
+}
