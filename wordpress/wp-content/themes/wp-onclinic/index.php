@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+    <div class="content">
       <div class="block cf">
         <?php get_sidebar(); ?>
         <!-- content -->
