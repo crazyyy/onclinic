@@ -651,4 +651,51 @@ function top_level_cats_remove_cat_base($link)
     return preg_replace('|' . $category_base . '|', '', $link, 1);
 }
 
+add_action( 'init', 'register_cpt_reviews' );
+function register_cpt_reviews() {
+    $labels = array(
+        'name' => _x( 'Отзыв', 'reviews' ),
+        'singular_name' => _x( 'Отзывы', 'reviews' ),
+        'add_new' => _x( 'Добавить', 'reviews' ),
+        'add_new_item' => _x( 'Добавить отзыв', 'reviews' ),
+        'edit_item' => _x( 'Редактироваь отзыв', 'reviews' ),
+        'new_item' => _x( 'Новый отзыв', 'reviews' ),
+        'view_item' => _x( 'Посмотреть отзыв', 'reviews' ),
+        'search_items' => _x( 'Искать отзыв', 'reviews' ),
+        'not_found' => _x( 'No reviews found', 'reviews' ),
+        'not_found_in_trash' => _x( 'No reviews found in Trash', 'reviews' ),
+        'parent_item_colon' => _x( 'Parent reviews:', 'reviews' ),
+        'menu_name' => _x( 'Отзывы', 'reviews' ),
+    );
+    $args = array(
+        'labels' => $labels,
+        'hierarchical' => true,
+
+        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'menu_position' => 5,
+
+        'show_in_nav_menus' => true,
+        'publicly_queryable' => true,
+        'exclude_from_search' => false,
+        'has_archive' => true,
+        'query_var' => true,
+        'can_export' => true,
+        'rewrite' => true,
+        'capability_type' => 'page'
+    );
+    register_post_type( 'reviews', $args );
+}
+
+
+
+
+
+
+
+
+
+
 ?>
