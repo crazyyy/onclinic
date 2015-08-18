@@ -15,41 +15,46 @@
       <div class="otd-filter cf">
         <div class="col col6">
 
+        <?php
+
+          $terms = get_terms( 'reviews_category' );
+          $x = 0;
+          if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
+             echo '<ul class="department">';
+             foreach ( $terms as $term ) {
+               echo '<li><a href="' . home_url() . '/reviews-category/'. $term->slug . '">' . $term->name . '</a></li>';
+               $x++;
+             }
+             echo '</ul>';
+          }
+        ?>
 
 
-          <select id="department" name="department">
-            <?php if( have_rows('servicesprices') ):
-              $x = 0;
-              while ( have_rows('servicesprices') ) : the_row();
-            $x++; ?>
-
-            <option value="<?php echo $x ?>" <?php if ( $x < 2 ) { echo 'selected="selected"'; } ?>><?php the_sub_field('fulltitle'); ?></option>
-
-            <?php endwhile; endif; ?>
-
-          </select>
         </div>
 
         <div class="col col3">
-          <a class="dotted fs19">Написать отзыв</a>
+          <a class="dotted fs19 writerew">Написать отзыв</a>
         </div>
       </div><!-- otd-filter cf -->
 
       <div class="comments">
         <ul>
+          <?php
+            $query = new WP_Query(array('post_type' => 'reviews', 'portfolio_type' => get_the_term_list( $post->ID, 'reviews_category' )));
+            while ($query->have_posts()) : $query->the_post();
+          ?>
           <li>
             <div class="name">
-              Пациент№ 10041, Семья спортсменов, <span class="date">15.08.2015</span>
+              <?php the_title(); ?>, <span class="date"><?php the_time('d F Y'); ?></span>
             </div><!-- name -->
             <div class="text">
-              <p>Была трещина кишки, как всегда неудобно, ложное стеснение, короче запустил болезнь пока не надоело терпеть. Начал выбирать клиннику, в достармеде обжегся шаг в любую сторону плати, еще в догонку поставили не тот диагноз. Решил обратится в Он Клиник, встал выбор врача. По фото меньше всего хотел попасть к Муканову Амиру Сабитовичу, но так получилось, что к нему и попал. В результате не желаю, четко все грамотно рассказал, показал на фото проблему. Грамотно убедил на операцию. На операцию шел с волнением. Но в итоге операцию делали не более 10минут. Самое неприятное укол, но не больнее чем у зубного, все остальное без никакой боли. Очень рад что попал именно к Амиру Сабитовичу, он врач от Бога. С уважением семья спортсменов.</p>
+              <?php the_content(); ?>
             </div><!-- text -->
           </li>
+          <?php endwhile; wp_reset_query(); ?>
         </ul>
 
-        <div class="paginator">
-          <span class="page-numbers current">1</span>
-        </div>
+        <?php get_template_part('pagination'); ?>
 
         <div id="add-rewiew-bottom" class="add-rewiew add-rewiew-page">
           <div class="h2center">

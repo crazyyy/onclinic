@@ -653,47 +653,62 @@ function top_level_cats_remove_cat_base($link)
 
 add_action( 'init', 'register_cpt_reviews' );
 function register_cpt_reviews() {
-    $labels = array(
-        'name' => _x( 'Отзыв', 'reviews' ),
-        'singular_name' => _x( 'Отзывы', 'reviews' ),
-        'add_new' => _x( 'Добавить', 'reviews' ),
-        'add_new_item' => _x( 'Добавить отзыв', 'reviews' ),
-        'edit_item' => _x( 'Редактироваь отзыв', 'reviews' ),
-        'new_item' => _x( 'Новый отзыв', 'reviews' ),
-        'view_item' => _x( 'Посмотреть отзыв', 'reviews' ),
-        'search_items' => _x( 'Искать отзыв', 'reviews' ),
-        'not_found' => _x( 'No reviews found', 'reviews' ),
-        'not_found_in_trash' => _x( 'No reviews found in Trash', 'reviews' ),
-        'parent_item_colon' => _x( 'Parent reviews:', 'reviews' ),
-        'menu_name' => _x( 'Отзывы', 'reviews' ),
-    );
-    $args = array(
-        'labels' => $labels,
-        'hierarchical' => true,
+  $labels = array(
+    'name' => _x( 'Отзыв', 'reviews' ),
+    'singular_name' => _x( 'Отзывы', 'reviews' ),
+    'add_new' => _x( 'Добавить', 'reviews' ),
+    'add_new_item' => _x( 'Добавить отзыв', 'reviews' ),
+    'edit_item' => _x( 'Редактироваь отзыв', 'reviews' ),
+    'new_item' => _x( 'Новый отзыв', 'reviews' ),
+    'view_item' => _x( 'Посмотреть отзыв', 'reviews' ),
+    'search_items' => _x( 'Искать отзыв', 'reviews' ),
+    'not_found' => _x( 'No reviews found', 'reviews' ),
+    'not_found_in_trash' => _x( 'No reviews found in Trash', 'reviews' ),
+    'parent_item_colon' => _x( 'Parent reviews:', 'reviews' ),
+    'menu_name' => _x( 'Отзывы', 'reviews' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
 
-        'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
-        'public' => true,
-        'show_ui' => true,
-        'show_in_menu' => true,
-        'menu_position' => 5,
+    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'menu_position' => 5,
 
-        'show_in_nav_menus' => true,
-        'publicly_queryable' => true,
-        'exclude_from_search' => false,
-        'has_archive' => true,
-        'query_var' => true,
-        'can_export' => true,
-        'rewrite' => true,
-        'capability_type' => 'page'
-    );
-    register_post_type( 'reviews', $args );
+    'show_in_nav_menus' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'has_archive' => true,
+    'query_var' => true,
+    'can_export' => true,
+    'rewrite' => true,
+    'capability_type' => 'page'
+  );
+  register_post_type( 'reviews', $args );
 }
-
-
-
-
-
-
+function register_cat_reviews() {
+  $labels = array(
+    'name'              => _x( 'Раздел отзыва', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Раздел отзыва', 'taxonomy singular name' ),
+    'search_items'      => __( 'Искать раздел' ),
+    'all_items'         => __( 'Все разделы' ),
+    'parent_item'       => __( 'Основной раздел' ),
+    'parent_item_colon' => __( 'Основной раздел:' ),
+    'edit_item'         => __( 'Редактировать раздел' ),
+    'update_item'       => __( 'Обновить' ),
+    'add_new_item'      => __( 'Добавить новый' ),
+    'new_item_name'     => __( 'Новый раздел' ),
+    'menu_name'         => __( 'Разделы отзывов' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
+  );
+  register_taxonomy( 'reviews-category', 'reviews', $args );
+}
+add_action( 'init', 'register_cat_reviews', 0 );
 
 
 

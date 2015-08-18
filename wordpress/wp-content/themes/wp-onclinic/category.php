@@ -12,7 +12,6 @@
       <h1 class="cat-title"><?php the_category(', '); ?></h1>
       <div class="s-p-content rubrika-text">
         <?php get_template_part('loop'); ?>
-
       </div>
     </div>
     <?php get_template_part('pagination'); ?>
