@@ -10,8 +10,7 @@
       <div class="brcr">
         <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
       </div>
-      <h1><?php the_title(); ?></h1>
-      <?php the_content(); ?>
+      <h1>Наши врачи</h1>
       <div class="s-p-content">
 
         <?php

@@ -28,20 +28,10 @@
         </div>
         <div class="header-right">
           <div class="line1 cf">
-            <div class="search">
-              <form id="searchform" class="form-search form-horizontal" action="<?php echo home_url(); ?>" name="searchform" role="search" method="get">
-                <div class="search-input">
-                  <input type="search" name="s" placeholder="поиск" id="searchInput" autocomplete="off">
-                  <div class="search-btn">
-                    <i></i>
-                  </div>
-                </div>
-              </form>
-            </div>
           </div>
           <div class="line2 cf">
             <div class="order-link">
-              <a class="button" href="http://onclinic.kz/zapis/">Запись к врачу онлайн</a>
+              <a class="button" href="<?php echo home_url(); ?>/zapis.htm">Запись к врачу онлайн</a>
             </div>
             <div class="top-phones">
               <div class="phones">
@@ -57,7 +47,7 @@
               </div>
             </div>
             <div class="top-teaser">
-              <a href="http://onclinic.kz/akcii/">
+              <a href="<?php echo home_url(); ?>/aktsii">
                 <img src="<?php echo get_template_directory_uri(); ?>/img/teaser-percent.png">
                 <p>C 1 по 16 августа скидка 20%</p>
               </a>
