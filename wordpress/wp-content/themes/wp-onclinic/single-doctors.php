@@ -22,56 +22,26 @@
 
         <?php the_content(); ?>
 
-
-
-
-
-
-<?php
-
-$posts = get_field('reviews');
-
-if( $posts ): ?>
-  <h2>Отзывы о враче</h2>
-
-
-
-
-
-<div class="comments">
-            <ul>
-
-
-
-  <?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
-
-                        <li>
-                <div class="name">
-                    <?php echo get_the_title( $p->ID ); ?>, <span class="date"><?php echo get_the_date( '', $p->ID ); ?></span>
-                </div>
-                <div class="text">
-                    <?php echo get_post_field('post_content', $p->ID); ?>
-                </div>
-
-                            </li>
-
-
-
-
-
-  <?php endforeach; ?>
-            </ul>
-        </div><!-- comments -->
-<?php endif; ?>
-
-
-
-
-
-
-
+        <?php $posts = get_field('reviews');
+          if( $posts ): ?>
+            <h2>Отзывы о враче</h2>
+            <div class="comments">
+              <ul>
+                <?php foreach( $posts as $p ): // variable must NOT be called $post (IMPORTANT) ?>
+                  <li>
+                    <div class="name">
+                      <?php echo get_the_title( $p->ID ); ?>, <span class="date"><?php echo get_the_date( '', $p->ID ); ?></span>
+                    </div>
+                    <div class="text">
+                      <?php echo get_post_field('post_content', $p->ID); ?>
+                    </div>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
+            </div><!-- comments -->
+          <?php endif; ?>
       </div>
-    </div>
-    <!-- end content -->
+    </div><!-- end content -->
+
   </div>
 <?php get_footer(); ?>
