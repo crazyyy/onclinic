@@ -763,7 +763,7 @@ function register_cat_doctors() {
     'update_item'       => __( 'Обновить' ),
     'add_new_item'      => __( 'Добавить новое' ),
     'new_item_name'     => __( 'Новое отделение' ),
-    'menu_name'         => __( 'Разделы отделений' ),
+    'menu_name'         => __( 'Отделения' ),
   );
   $args = array(
     'labels' => $labels,

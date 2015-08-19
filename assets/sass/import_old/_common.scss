@@ -214,7 +214,27 @@ input.error {
     box-shadow: 0 0 0 3px #f9cfcf;
   }
 }
+.clearfix {
+  *zoom: 1;
+  &:before {
+    display: table;
 
+    content: '';
+  }
+  &:after {
+    display: table;
+    clear: both;
+
+    content: '';
+  }
+}
+.clear {
+  clear: both;
+}
+.featureimg {
+  float: left;
+  margin: 0 15px 15px 0;
+}
 textarea {
   resize: vertical;
   &.error {

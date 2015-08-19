@@ -11,7 +11,15 @@
         <?php if (function_exists('dimox_breadcrumbs')) dimox_breadcrumbs(); ?>
       </div>
       <h1><?php the_title(); ?></h1>
-      <div class="s-p-content">
+      <div class="s-p-content clearfix">
+        <div class="featureimg">
+          <?php if ( has_post_thumbnail()) :
+            the_post_thumbnail('medium');
+          else: ?>
+            <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+          <?php endif; ?>
+        </div><!-- /.featureimg -->
+
         <?php the_content(); ?>
       </div>
     </div>
