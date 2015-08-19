@@ -688,6 +688,7 @@ function register_cpt_reviews() {
   );
   register_post_type( 'reviews', $args );
 }
+
 function register_cat_reviews() {
   $labels = array(
     'name'              => _x( 'Раздел отзыва', 'taxonomy general name' ),
@@ -711,6 +712,66 @@ function register_cat_reviews() {
 add_action( 'init', 'register_cat_reviews', 0 );
 
 
+
+add_action( 'init', 'register_cpt_doctors' );
+function register_cpt_doctors() {
+  $labels = array(
+    'name' => _x( 'Доктора', 'doctors' ),
+    'singular_name' => _x( 'Доктора', 'doctors' ),
+    'add_new' => _x( 'Добавить', 'doctors' ),
+    'add_new_item' => _x( 'Добавить доктора', 'doctors' ),
+    'edit_item' => _x( 'Редактироваь доктора', 'doctors' ),
+    'new_item' => _x( 'Новый доктора', 'doctors' ),
+    'view_item' => _x( 'Посмотреть доктора', 'doctors' ),
+    'search_items' => _x( 'Искать доктора', 'doctors' ),
+    'not_found' => _x( 'No doctors found', 'doctors' ),
+    'not_found_in_trash' => _x( 'No doctors found in Trash', 'doctors' ),
+    'parent_item_colon' => _x( 'Parent doctors:', 'doctors' ),
+    'menu_name' => _x( 'Доктора', 'doctors' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
+
+    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' ),
+    'public' => true,
+    'show_ui' => true,
+    'show_in_menu' => true,
+    'menu_position' => 6,
+
+    'show_in_nav_menus' => true,
+    'publicly_queryable' => true,
+    'exclude_from_search' => false,
+    'has_archive' => true,
+    'query_var' => true,
+    'can_export' => true,
+    'rewrite' => true,
+    'capability_type' => 'page'
+  );
+  register_post_type( 'doctors', $args );
+}
+
+function register_cat_doctors() {
+  $labels = array(
+    'name'              => _x( 'Отделение', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Отделение', 'taxonomy singular name' ),
+    'search_items'      => __( 'Искать отделение' ),
+    'all_items'         => __( 'Все отделения' ),
+    'parent_item'       => __( 'Основное отделение' ),
+    'parent_item_colon' => __( 'Основное отделение:' ),
+    'edit_item'         => __( 'Редактировать отделение' ),
+    'update_item'       => __( 'Обновить' ),
+    'add_new_item'      => __( 'Добавить новое' ),
+    'new_item_name'     => __( 'Новое отделение' ),
+    'menu_name'         => __( 'Разделы отделений' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
+  );
+  register_taxonomy( 'doctors-category', 'doctors', $args );
+}
+add_action( 'init', 'register_cat_doctors', 0 );
 
 
 ?>
