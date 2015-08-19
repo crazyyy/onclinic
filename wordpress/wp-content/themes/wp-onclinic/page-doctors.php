@@ -24,56 +24,49 @@
 
              foreach ( $terms as $term ) {
               echo '<h3>' . $term->name . '</h3>';
+              echo '<div class="doctors-rubrik-list cf">';
+              $args = array(
+                'post_type' => 'doctors',
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'doctors-category',
+                    'field' => 'slug',
+                    'terms' => $term->slug
+                    )
+                  ),
+                );
 
-              $termSlug = $term->slug;
+              query_posts($args);
 
-              echo $term->slug;
+              if ( have_posts() ) : while ( have_posts() ) : the_post();
+        ?>
 
+        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><p class="in"><?php if ( has_post_thumbnail()) :
+          the_post_thumbnail('medium');
+        else: ?>
+          <img src="<?php echo catchFirstImage(); ?>" title="<?php the_title(); ?>" alt="<?php the_title(); ?>" />
+        <?php endif; ?><span><?php the_title(); ?></span></p></a>
 
-
-
-$args = array(
-    'post_type' => 'doctors',
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'doctors-category',
-            'field' => 'slug',
-            'terms' => $term->slug
-        )
-     )
-);
-
-$query = new WP_Query($args);
-
-if ($query->have_posts()) {
-    while ($query->have_posts()) {
-        $query->the_post;
-        // do something
-        the_title();
-    }
-}
+      <?php endwhile;
+        echo '</div><!-- doctors-rubrik-list cf -->';
+      endif; wp_reset_query(); ?>
 
 
 
 
 
 
+   <?php
 
 
 
 
-
-
-
-
-
-              echo '<li><a href="' . home_url() . '/doctors-category/'. $term->slug . '">' . $term->name . '</a></li>';
 
 
              }
 
 
-             echo '</ul>';
+
           }
         ?>
 
@@ -88,13 +81,8 @@ if ($query->have_posts()) {
 
 
 
-        <div class="doctors-rubrik-list cf">
-        <a href="http://onclinic.kz/urologi/dybov/"><p class="in"><img src="http://onclinic.kz/wp-content/uploads/2014/07/dybov.jpg"><span>Дыбов Юрий Александрович</span></p></a>
 
 
-        <a href="http://onclinic.kz/urologi/volkov/"><p class="in"><img src="http://onclinic.kz/wp-content/uploads/2014/07/volkov.jpg"><span>Волков Алексей Фадеевич</span></p></a><a href="http://onclinic.kz/urologi/skipin/"><p class="in"><img src="http://onclinic.kz/wp-content/uploads/2014/07/skipin.jpg"><span>Скипин Станислав Георгиевич</span></p></a><a href="http://onclinic.kz/urologi/razdorskiy/"><p class="in"><img src="http://onclinic.kz/wp-content/uploads/2014/07/razdorskiy-300x300.jpg"><span>Раздорский Константин Владимирович</span></p></a>
-
-        </div><!-- doctors-rubrik-list cf -->
 
 
       </div><!-- s-p-content -->
