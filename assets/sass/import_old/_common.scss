@@ -1154,6 +1154,9 @@ ul.o-list li {
 
 .rewiews-list {
   margin-top: 15px;
+  .view-article {
+    display: none;
+  }
   ul li {
     position: relative;
 
