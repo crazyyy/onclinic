@@ -13,26 +13,7 @@
       <h1><?php the_title(); ?></h1>
 
       <div class="otd-filter cf">
-        <div class="col col6">
-
-        <?php
-
-          $terms = get_terms( 'reviews-category' );
-          $x = 0;
-          if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-             echo '<ul class="department">';
-             foreach ( $terms as $term ) {
-               echo '<li><a href="' . home_url() . '/reviews-category/'. $term->slug . '">' . $term->name . '</a></li>';
-               $x++;
-             }
-             echo '</ul>';
-          }
-        ?>
-
-
-        </div>
-
-        <div class="col col3">
+        <div class="col col12">
           <a class="dotted fs19 writerew">Написать отзыв</a>
         </div>
       </div><!-- otd-filter cf -->
@@ -48,7 +29,7 @@
               <?php the_content(); ?>
             </div><!-- text -->
           </li>
-          <?php endwhile; wp_reset_query(); ?>
+          <?php endwhile; endif; wp_reset_query(); ?>
         </ul>
 
         <?php get_template_part('pagination'); ?>
@@ -60,12 +41,8 @@
 
           <?php echo do_shortcode('[contact-form-7 id="118" title="Отзыв"]'); ?>
 
-
-
         </div>
       </div>
-
-
 
     </div>
     <!-- end content -->

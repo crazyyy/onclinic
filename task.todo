@@ -33,3 +33,10 @@ Reply-To: <info@onclinic.dev>
 
 --
 Это сообщение отправлено с сайта  (http://onclinic.dev)
+
+
+
+
+
+
+<div class="form-body"><div class="line cf"><div class="col col4">Ваше имя <span class="required">*</span></div><div class="col col7">[text* your-name]</div></div><div class="line cf"><div class="col col4">Телефон <span class="required">*</span> </div><div class="col col7">[tel your-telephone id:your-telephone]</div></div><div class="line cf"><div class="col col4"><p>Комментарий</p><p class="moder">Ваши симптомы или специальность врача.</p></div><div class="col col7">[textarea your-message]</div></div><div class="line cf"><div class="col col4">&nbsp;</div><div class="col col7 cf"><div class="col col2">[submit class:button class:orangeButton "Записаться"]</div><div class="col col2"><div class="moder">Мы гарантируем полную конфиденциальность Вашего обращения!</div><p></p></div></div></div></div>

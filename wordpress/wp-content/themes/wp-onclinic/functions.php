@@ -689,30 +689,6 @@ function register_cpt_reviews() {
   register_post_type( 'reviews', $args );
 }
 
-function register_cat_reviews() {
-  $labels = array(
-    'name'              => _x( 'Раздел отзыва', 'taxonomy general name' ),
-    'singular_name'     => _x( 'Раздел отзыва', 'taxonomy singular name' ),
-    'search_items'      => __( 'Искать раздел' ),
-    'all_items'         => __( 'Все разделы' ),
-    'parent_item'       => __( 'Основной раздел' ),
-    'parent_item_colon' => __( 'Основной раздел:' ),
-    'edit_item'         => __( 'Редактировать раздел' ),
-    'update_item'       => __( 'Обновить' ),
-    'add_new_item'      => __( 'Добавить новый' ),
-    'new_item_name'     => __( 'Новый раздел' ),
-    'menu_name'         => __( 'Разделы отзывов' ),
-  );
-  $args = array(
-    'labels' => $labels,
-    'hierarchical' => true,
-  );
-  register_taxonomy( 'reviews-category', 'reviews', $args );
-}
-add_action( 'init', 'register_cat_reviews', 0 );
-
-
-
 add_action( 'init', 'register_cpt_doctors' );
 function register_cpt_doctors() {
   $labels = array(

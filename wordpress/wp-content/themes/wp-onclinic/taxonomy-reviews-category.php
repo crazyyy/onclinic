@@ -13,26 +13,7 @@
       <h1><?php $term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); echo $term->name; ?></h1>
 
       <div class="otd-filter cf">
-        <div class="col col6">
-
-        <?php
-
-          $terms = get_terms( 'reviews-category' );
-          $x = 0;
-          if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-             echo '<ul class="department">';
-             foreach ( $terms as $term ) {
-               echo '<li><a href="' . home_url() . '/reviews-category/'. $term->slug . '">' . $term->name . '</a></li>';
-               $x++;
-             }
-             echo '</ul>';
-          }
-        ?>
-
-
-        </div>
-
-        <div class="col col3">
+        <div class="col col12">
           <a class="dotted fs19 writerew">Написать отзыв</a>
         </div>
       </div><!-- otd-filter cf -->
